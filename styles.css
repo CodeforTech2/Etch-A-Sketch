@@ -25,10 +25,8 @@ header h1 {
     /* gap: 1em; */
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
-    /* background-color: rgb(255, 255, 255); */
 }
 .grid-item {
     border: 1px solid black;
-    padding: 1em;
     text-align: center;
 }
