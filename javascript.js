@@ -1,5 +1,7 @@
 const container = document.querySelector('#container');
 
+
+//Function to create divs
 function makeRows (rows, cols) {
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
@@ -10,4 +12,10 @@ function makeRows (rows, cols) {
     };
 };
 
-makeRows(64, 64);
+makeRows(24, 24);
+
+const div = document.querySelectorAll('.grid-item');
+
+div.forEach(el => el.addEventListener('mouseover', (e) => {
+    e.target.style.backgroundColor = "black";
+}));

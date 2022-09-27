@@ -1,6 +1,7 @@
 body {
     margin: 0;
     box-sizing: border-box;
+    background-color: gray;
 }
 
 :root {
@@ -9,8 +10,10 @@ body {
 }
 
 #main {
-    background-color: gray;
+    background-color: rgb(155, 153, 153);
     height: 100vh;
+    max-width: 1720px;
+    margin: 0 auto;
 }
 
 header h1 {
@@ -19,14 +22,19 @@ header h1 {
 }
 
 #container {
+    margin: 0 auto;
     width: 600px;
     height: 600px;
     display: grid;
-    /* gap: 1em; */
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
+    border: 2px solid black;
 }
 .grid-item {
     border: 1px solid black;
     text-align: center;
+}
+
+.background {
+    background-color: black;
 }
