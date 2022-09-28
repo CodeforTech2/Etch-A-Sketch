@@ -17,5 +17,5 @@ makeRows(54, 54);
 const div = document.querySelectorAll('.grid-item');
 
 div.forEach(el => el.addEventListener('mouseover', (e) => {
-    // e.target.className = 'background';
+    e.target.className = 'background';
 }));
