@@ -12,10 +12,10 @@ function makeRows (rows, cols) {
     };
 };
 
-makeRows(24, 24);
+makeRows(54, 54);
 
 const div = document.querySelectorAll('.grid-item');
 
 div.forEach(el => el.addEventListener('mouseover', (e) => {
-    e.target.style.backgroundColor = "black";
+    // e.target.className = 'background';
 }));

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     box-sizing: border-box;
-    background-color: gray;
+    background-color: rgb(228, 227, 228);
 }
 
 :root {
@@ -9,29 +9,43 @@ body {
     --grid-rows: 1;
 }
 
-#main {
-    background-color: rgb(155, 153, 153);
-    height: 100vh;
-    max-width: 1720px;
+header h1 {
+    background-color: rgb(146, 15, 161);
+    color: white;
+    margin-top: 0;
+    text-align: center;
+    font-size: 50px;
+}
+
+.main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 100px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-header h1 {
-    background-color: rgb(223, 248, 134);
-    margin-top: 0;
+.settings {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 #container {
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 600px;
     height: 600px;
     display: grid;
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    border: 2px solid black;
+    grid-template-columns: repeat(var(--grid-cols), auto);
+    grid-template-rows: repeat(var(--grid-rows), auto);
+    border: 4px solid rgb(223, 223, 223);
+    background-color: #fff;
+    box-shadow: 0 0 20px 7px rgb(175, 98, 171);
 }
 .grid-item {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     text-align: center;
 }
 
