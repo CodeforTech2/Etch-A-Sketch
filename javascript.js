@@ -1,6 +1,11 @@
 const container = document.querySelector('#container');
 const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
+const range = document.querySelector('#range');
+const rangeDisplay = document.querySelector('#rangeDisplay');
+
+// const display = range.value;
+// rangeDisplay.innerHTML = `${display} x ${display}`;
 
 //Function to create divs
 function makeRows (rows, cols) {
@@ -13,7 +18,7 @@ function makeRows (rows, cols) {
     };
 };
 
-makeRows(44, 44);
+makeRows(64, 64);
 
 const div = document.querySelectorAll('.grid-item');
 
@@ -47,7 +52,16 @@ eraser.addEventListener('click', () => {
 function clearAll() {
     container.innerHTML = '';
 };
+
 clear.addEventListener('click', () => {
     clearAll();
-    makeRows(44, 44)
+    makeRows(64, 64)
 });
+
+// DOM range Value update in real time 
+function rangeValue() {
+    let value = range.value;
+    rangeDisplay.innerHTML = `${value} x ${value}`;
+};
+
+range.addEventListener('input', rangeValue);

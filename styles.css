@@ -56,3 +56,7 @@ header h1 {
 .red {
     background-color: red;
 }
+
+#rangeDisplay {
+    text-align: center;
+}
