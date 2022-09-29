@@ -45,7 +45,7 @@ header h1 {
     box-shadow: 0 0 20px 7px rgb(175, 98, 171);
 }
 .grid-item {
-    /* border: 1px solid black; */
+    border: 1px solid black;
     text-align: center;
 }
 

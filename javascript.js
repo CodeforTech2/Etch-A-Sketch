@@ -4,10 +4,8 @@ const clear = document.querySelector('#clear');
 const range = document.querySelector('#range');
 const rangeDisplay = document.querySelector('#rangeDisplay');
 
-// const display = range.value;
-// rangeDisplay.innerHTML = `${display} x ${display}`;
 
-//Function to create divs
+//Function to create div's
 function makeRows (rows, cols) {
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
@@ -17,21 +15,19 @@ function makeRows (rows, cols) {
         container.appendChild(div).className = 'grid-item';
     };
 };
+makeRows(33, 33);
 
-makeRows(64, 64);
+//Update the container rows from the range value
+function updateRows() {
+    makeRows(range.value, range.value);
+};
 
-const div = document.querySelectorAll('.grid-item');
-
-// div.forEach(el => el.addEventListener('mousedown', (e) => {
-//     e.target.className = 'background';
-// }));
 function color() {
     container.addEventListener('mouseover', e => {
         // if (e.buttons === 1) {
             // e.target.className = 'background';
             e.target.classList.add('background');
         // }
-        console.log(e.type)
     });
 }
 color();
@@ -55,13 +51,15 @@ function clearAll() {
 
 clear.addEventListener('click', () => {
     clearAll();
-    makeRows(64, 64)
+    updateRows();
 });
 
 // DOM range Value update in real time 
 function rangeValue() {
     let value = range.value;
     rangeDisplay.innerHTML = `${value} x ${value}`;
+    container.innerHTML = '';
+    updateRows();
 };
 
 range.addEventListener('input', rangeValue);
