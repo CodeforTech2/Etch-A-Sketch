@@ -30,7 +30,7 @@ function updateRows() {
 
 function changeColor() {
     container.addEventListener('mouseover', e => {
-        if (e.buttons === 1) {
+        if (e.buttons === 1 && e.target.className === 'grid-item') {
             // e.target.classList.add('background');
             e.target.style.backgroundColor = getColor();
         };
@@ -45,7 +45,10 @@ changeColor();
 //Eraser function and button functionality
 function eraserButton() {
     container.addEventListener('mouseover', e => {
-        e.target.classList.remove('background');
+        if (e.buttons === 1 && e.target.className === 'grid-item') {
+            e.target.style.backgroundColor = 'white';
+        };
+        // e.target.classList.remove('background');
     });
 };
 
