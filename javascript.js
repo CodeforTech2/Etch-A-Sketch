@@ -1,9 +1,15 @@
 const container = document.querySelector('#container');
+const color = document.querySelector('#color');
 const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
 const range = document.querySelector('#range');
 const rangeDisplay = document.querySelector('#rangeDisplay');
 
+function getColor() {
+    return color.value;
+};
+
+color.addEventListener('input', getColor);
 
 //Function to create div's
 function makeRows (rows, cols) {
@@ -22,15 +28,19 @@ function updateRows() {
     makeRows(range.value, range.value);
 };
 
-function color() {
+function changeColor() {
     container.addEventListener('mouseover', e => {
-        // if (e.buttons === 1) {
-            // e.target.className = 'background';
-            e.target.classList.add('background');
-        // }
+        if (e.buttons === 1) {
+            // e.target.classList.add('background');
+            e.target.style.backgroundColor = getColor();
+        };
     });
-}
-color();
+};
+
+
+changeColor();
+
+
 
 //Eraser function and button functionality
 function eraserButton() {
