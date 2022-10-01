@@ -7,6 +7,8 @@ const clear = document.querySelector('#clear');
 const range = document.querySelector('#range');
 const rangeDisplay = document.querySelector('#rangeDisplay');
 
+const settings = document.querySelector('.settings');
+const btns = settings.getElementsByClassName("btn");
 
 //Function to create div's
 function makeRows (rows, cols) {
@@ -25,10 +27,27 @@ function updateRows() {
     makeRows(range.value, range.value);
 };
 
+//Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+      var current = document.getElementsByClassName("active");
+      // If there's no active class
+      if (current.length > 0) {
+        current[0].className = current[0].className.replace(" active", "");
+      }
+      // Add the active class to the current/clicked button
+      this.className += " active";
+    });
+  }
+
 function changeColor() {
     container.addEventListener('mouseover', e => { 
         if (e.buttons === 1 && e.target.className === 'grid-item') {
-            e.target.style.backgroundColor = rainbowColor();
+            if (colorBtn.classList.contains('active')) {
+                e.target.style.backgroundColor = colorMode();
+            } else if (rainbowBtn.classList.contains('active')) {
+                e.target.style.backgroundColor = rainbowColor();
+            }
         };
     });
 };
@@ -47,9 +66,9 @@ colorBtn.addEventListener('click', () => {
 
 //Function that generate a random rgb color
 function rainbowColor() {
-    const red = Math.floor((Math.random() * 255) + 1);
-    const green = Math.floor((Math.random() * 255) + 1);
-    const blue = Math.floor((Math.random() * 255) + 1);
+    const red = Math.floor(Math.random() * 256);
+    const green = Math.floor(Math.random() * 256);
+    const blue = Math.floor(Math.random() * 256);
     let color = `rgb(${red}, ${green}, ${blue})`;
     return color;
 };
@@ -88,3 +107,8 @@ function rangeValue() {
     updateRows();
 };
 range.addEventListener('input', rangeValue);
+
+//Settings for first page load with colorMode activated
+window.onload = () => {
+
+}

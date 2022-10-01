@@ -53,8 +53,9 @@ header h1 {
     background-color: black;
 }
 
-.red {
-    background-color: red;
+.active {
+    background-color: #666;
+    color: white
 }
 
 #rangeDisplay {
