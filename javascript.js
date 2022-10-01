@@ -1,15 +1,11 @@
 const container = document.querySelector('#container');
 const color = document.querySelector('#color');
+const colorMode = document.querySelector('#color-mode');
 const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
 const range = document.querySelector('#range');
 const rangeDisplay = document.querySelector('#rangeDisplay');
 
-function getColor() {
-    return color.value;
-};
-
-color.addEventListener('input', getColor);
 
 //Function to create div's
 function makeRows (rows, cols) {
@@ -36,10 +32,18 @@ function changeColor() {
         };
     });
 };
+// changeColor();
 
+//Function to get the color from input
+function getColor() {
+    return color.value;
+};
+color.addEventListener('input', getColor);
 
-changeColor();
-
+//Select color mode when click color btn, with input color selected
+colorMode.addEventListener('click', () => {
+    changeColor();
+});
 
 
 //Eraser function and button functionality
