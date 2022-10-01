@@ -1,6 +1,7 @@
 const container = document.querySelector('#container');
 const color = document.querySelector('#color');
-const colorMode = document.querySelector('#color-mode');
+const colorBtn = document.querySelector('#color-mode');
+const rainbowBtn = document.querySelector('#rainbow-mode');
 const eraser = document.querySelector('#eraser');
 const clear = document.querySelector('#clear');
 const range = document.querySelector('#range');
@@ -25,26 +26,36 @@ function updateRows() {
 };
 
 function changeColor() {
-    container.addEventListener('mouseover', e => {
+    container.addEventListener('mouseover', e => { 
         if (e.buttons === 1 && e.target.className === 'grid-item') {
-            // e.target.classList.add('background');
-            e.target.style.backgroundColor = getColor();
+            e.target.style.backgroundColor = rainbowColor();
         };
     });
 };
-// changeColor();
+changeColor();
 
 //Function to get the color from input
-function getColor() {
+function colorMode() {
     return color.value;
 };
-color.addEventListener('input', getColor);
+color.addEventListener('input', colorMode);
 
 //Select color mode when click color btn, with input color selected
-colorMode.addEventListener('click', () => {
+colorBtn.addEventListener('click', () => {
     changeColor();
 });
 
+//Function that generate a random rgb color
+function rainbowColor() {
+    const red = Math.floor((Math.random() * 255) + 1);
+    const green = Math.floor((Math.random() * 255) + 1);
+    const blue = Math.floor((Math.random() * 255) + 1);
+    let color = `rgb(${red}, ${green}, ${blue})`;
+    return color;
+};
+rainbowBtn.addEventListener('click', () => {
+    changeColor();
+});
 
 //Eraser function and button functionality
 function eraserButton() {
@@ -52,10 +63,8 @@ function eraserButton() {
         if (e.buttons === 1 && e.target.className === 'grid-item') {
             e.target.style.backgroundColor = 'white';
         };
-        // e.target.classList.remove('background');
     });
 };
-
 eraser.addEventListener('click', () => {
     eraserButton();
 });
@@ -64,8 +73,8 @@ eraser.addEventListener('click', () => {
 //Clear function and button functionality
 function clearAll() {
     container.innerHTML = '';
+    changeColor();
 };
-
 clear.addEventListener('click', () => {
     clearAll();
     updateRows();
@@ -78,5 +87,4 @@ function rangeValue() {
     container.innerHTML = '';
     updateRows();
 };
-
 range.addEventListener('input', rangeValue);
