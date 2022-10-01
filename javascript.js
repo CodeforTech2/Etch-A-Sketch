@@ -7,9 +7,6 @@ const clear = document.querySelector('#clear');
 const range = document.querySelector('#range');
 const rangeDisplay = document.querySelector('#rangeDisplay');
 
-const settings = document.querySelector('.settings');
-const btns = settings.getElementsByClassName("btn");
-
 //Function to create div's
 function makeRows (rows, cols) {
     container.style.setProperty('--grid-rows', rows);
@@ -28,9 +25,11 @@ function updateRows() {
 };
 
 //Loop through the buttons and add the active class to the current/clicked button
-for (var i = 0; i < btns.length; i++) {
+const settings = document.querySelector('.settings');
+const btns = settings.getElementsByClassName("btn");
+for (let i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() {
-      var current = document.getElementsByClassName("active");
+      const current = document.getElementsByClassName("active");
       // If there's no active class
       if (current.length > 0) {
         current[0].className = current[0].className.replace(" active", "");
@@ -38,7 +37,7 @@ for (var i = 0; i < btns.length; i++) {
       // Add the active class to the current/clicked button
       this.className += " active";
     });
-  }
+  };
 
 function changeColor() {
     container.addEventListener('mouseover', e => { 
