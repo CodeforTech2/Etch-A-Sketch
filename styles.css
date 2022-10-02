@@ -1,17 +1,19 @@
 body {
     margin: 0;
+    height: 100vh;
     box-sizing: border-box;
     background-color: var(--primary-light);
+    /* background-image: linear-gradient(to right, rgb(139, 7, 139), rgb(12, 149, 195), rgb(195, 12, 189)); */
+   
 }
 
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
-    --primary-light: #fefefe;
+    --primary-light: #ededed;
 }
 
 header h1 {
-
     color: rgb(67, 66, 66);
     margin-top: 0;
     text-align: center;
@@ -128,3 +130,20 @@ input[type='color']::-webkit-color-swatch {
     text-align: center;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.fa-github {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+}

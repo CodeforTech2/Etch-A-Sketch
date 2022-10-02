@@ -12,8 +12,7 @@ function makeRows (rows, cols) {
     container.style.setProperty('--grid-rows', rows);
     container.style.setProperty('--grid-cols', cols);
     for (let i = 0; i < (rows * cols); i++) {
-        const div = document.createElement('div');
-        // div.textContent = i +1;
+        const div = document.createElement('div');  
         container.appendChild(div).className = 'grid-item';
     };
 };
@@ -106,8 +105,3 @@ function rangeValue() {
     updateRows();
 };
 range.addEventListener('input', rangeValue);
-
-//Settings for first page load with colorMode activated
-window.onload = () => {
-
-}
